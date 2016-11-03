@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="jh|x64">
+      <Configuration>jh</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A21812E9-5B64-4902-AF6C-14817F205346}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CollisionDetection3D</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='jh|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(SolutionDir)deps/libs;$(LibraryPath)</LibraryPath>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>$(SolutionDir)deps/libs;$(LibraryPath)</LibraryPath>
+    <GenerateManifest>false</GenerateManifest>
+    <LinkIncremental>
+    </LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps/libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AllowIsolation>false</AllowIsolation>
+      <IgnoreEmbeddedIDL>true</IgnoreEmbeddedIDL>
+      <GenerateDebugInformation>
+      </GenerateDebugInformation>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps/includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps/libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AllowIsolation>false</AllowIsolation>
+      <IgnoreEmbeddedIDL>true</IgnoreEmbeddedIDL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ApplicationBase\ApplicationCore.cpp" />
+    <ClCompile Include="ApplicationBase\AppTime.cpp" />
+    <ClCompile Include="ApplicationBase\IAppComponent.cpp" />
+    <ClCompile Include="ApplicationBase\IDrawable.cpp" />
+    <ClCompile Include="ApplicationBase\lodepng.cpp" />
+    <ClCompile Include="Game\AppComponents\HeightMap.cpp" />
+    <ClCompile Include="Game\Interaction\Bounding\BoundingBox.cpp" />
+    <ClCompile Include="Game\Interaction\Bounding\OcTree.cpp" />
+    <ClCompile Include="Game\Interaction\ConvexObj.cpp" />
+    <ClCompile Include="Game\Interaction\CornerTable.cpp" />
+    <ClCompile Include="Game\Interaction\Primitives\OrientatedPlane.cpp" />
+    <ClCompile Include="Game\Interaction\Primitives\Ray.cpp" />
+    <ClCompile Include="Game\Interaction\Primitives\Segment.cpp" />
+    <ClCompile Include="Game\Interaction\Primitives\Triangle.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Data\map00.png" />
+    <Image Include="Data\map01.png" />
+    <Image Include="Data\texture0.png" />
+    <Image Include="Data\texture00.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Game\Data\map00.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Game\Data\map01.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Game\Data\texture00.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\simple00.cob" />
+    <None Include="Data\simple01.cob">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Data\simpleColor.fragmentshader">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Data\simpleColor.vertexshader">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Data\StandardShading.fragmentshader">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Data\StandardShading.vertexshader">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Game\Data\StandardShading.fragmentshader">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Game\Data\StandardShading.vertexshader">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ApplicationBase\ApplicationCore.hpp" />
+    <ClInclude Include="ApplicationBase\AppTime.hpp" />
+    <ClInclude Include="ApplicationBase\Bitmap.hpp" />
+    <ClInclude Include="ApplicationBase\Debug.hpp" />
+    <ClInclude Include="ApplicationBase\IAppComponent.hpp" />
+    <ClInclude Include="ApplicationBase\IDrawableComponent.hpp" />
+    <ClInclude Include="ApplicationBase\IDrawable.hpp" />
+    <ClInclude Include="ApplicationBase\lodepng.hpp" />
+    <ClInclude Include="ApplicationBase\shader.hpp" />
+    <ClInclude Include="Game\AppComponents\SimpleDrawer.hpp" />
+    <ClInclude Include="Game\Body.hpp" />
+    <ClInclude Include="Game\Cache.hpp" />
+    <ClInclude Include="Game\Event.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\Bounding.hpp" />
+    <ClInclude Include="Game\AppComponents\InfoDrawer.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\MapOcTree.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\ObjOcTree.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\TriangleOcTree.hpp" />
+    <ClInclude Include="Game\Interaction\Primitives\StoredTriangle.hpp" />
+    <ClInclude Include="Game\MeteorTestApp.hpp" />
+    <ClInclude Include="Game\TriangleTestApp.hpp" />
+    <ClInclude Include="Tests.hpp" />
+    <ClInclude Include="Game\Interaction\CornerTable.hpp" />
+    <ClInclude Include="Game\Interaction\ConvexObj.hpp" />
+    <ClInclude Include="Game\AppComponents\FreeLookCamera.hpp" />
+    <ClInclude Include="Game\AppComponents\HeightMap.hpp" />
+    <ClInclude Include="Game\Application.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\BoundingBox.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\BoundingSphere.hpp" />
+    <ClInclude Include="Game\Interaction\Primitives\Primitives.hpp" />
+    <ClInclude Include="Game\Interaction\Support\GSElimination.hpp" />
+    <ClInclude Include="Game\Interaction\Primitives\OrientatedPlane.hpp" />
+    <ClInclude Include="Game\Interaction\Support\IntersectInfo.hpp" />
+    <ClInclude Include="Game\Interaction\Bounding\OcTree.hpp" />
+    <ClInclude Include="Game\Interaction\Primitives\Ray.hpp" />
+    <ClInclude Include="Game\Interaction\Primitives\Segment.hpp" />
+    <ClInclude Include="Game\Interaction\Primitives\Triangle.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

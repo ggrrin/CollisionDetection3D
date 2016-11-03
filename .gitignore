@@ -1,0 +1,17 @@
+Debug/
+bin/
+obj/
+log/
+data*.txt
+*chunk_*
+data*.out
+*.opendb
+*.opensdf
+.vs/*
+*.sdf
+**/*.suo
+*.stackdump
+Libraries/
+.hg/
+.hgignore
+x64
